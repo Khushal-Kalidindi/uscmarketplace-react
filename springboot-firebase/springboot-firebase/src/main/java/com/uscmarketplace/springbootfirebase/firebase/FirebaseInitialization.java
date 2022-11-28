@@ -18,7 +18,7 @@ public class FirebaseInitialization {
         FileInputStream serviceAccount = null;
         try {
             //might have to change file path based on machine
-            serviceAccount = new FileInputStream(System.getProperty("user.dir")+ "/springboot-firebase/serviceAccountKey.json");
+            serviceAccount = new FileInputStream(System.getProperty("user.dir")+ "/springboot-firebase/springboot-firebase/serviceAccountKey.json");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
