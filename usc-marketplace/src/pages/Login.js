@@ -1,5 +1,8 @@
 import "./../App.css";
 import "./style.css";
+import SignupPage from "./Signup"
+import { Link } from "react-router-dom";
+
 
 function LoginPage() {
   return (
@@ -32,7 +35,11 @@ function LoginPage() {
 
               <input class="login-button" type="submit" value="Login"></input>
               <div class="signup_link">
-                Not a member? <a href="#">Signup</a>
+                Not a member? 
+                <Link to="/signup">
+                  <li>Signup</li>
+                </Link>
+                {/* <a href="/signup">Signup</a> */}
               </div>
             </form>
           </div>

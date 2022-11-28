@@ -71,6 +71,14 @@ input[type="submit"] {
   margin-left: 15px;
   border-radius: 30px;
   background-color: rgb(109, 145, 200);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+li {
+  text-align: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 .google {
@@ -99,4 +107,8 @@ input[type="submit"] {
 
 .login-button {
   font-size: 20px;
+}
+
+ul.blank {
+  list-style-type: none; /* Remove bullets */
 }
