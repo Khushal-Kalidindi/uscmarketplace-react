@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 nav {
   display: flex;
   justify-content: space-around;
@@ -23,4 +24,9 @@ nav h3{
   justify-content: space-around;
   align-items: center;
   list-style: none;
+}
+
+.box{
+  background-color: white;
+  border: black;
 }
