@@ -12,6 +12,7 @@ function Nav() {
         <Link to="/">
           <li>Home</li>
         </Link>
+        <li><a href="http://localhost:9080/Auction/AuctionPage.html" style={{"text-decoration":"none", "color":"white"}}>Auction</a></li>
         <Link to="/login">
           <li>Login</li>
         </Link>
