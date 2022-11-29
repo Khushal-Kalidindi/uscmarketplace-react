@@ -1,6 +1,5 @@
 import logo from "./logo.svg";
 import "./App.css";
-import AboutPage from "./pages/About";
 import HomePage from "./pages/Home";
 import Nav from "./pages/Nav";
 import LoginPage from "./pages/Login";
@@ -14,7 +13,6 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
         </Routes>
