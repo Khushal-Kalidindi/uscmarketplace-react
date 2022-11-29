@@ -4,6 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## To Run
 - cd to usc-marketplace
+- npm install
 - npm run build
 - npm start
 
