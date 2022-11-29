@@ -2,11 +2,26 @@ import "./../App.css";
 import "./style.css";
 import SignupPage from "./Signup"
 import { Link } from "react-router-dom";
-
+import { useForm } from 'react-hook-form'
+import { AuthContext, useAuthContext } from "../contexts/AuthContext";
+import { useContext, useState } from "react";
 
 function LoginPage() {
+  const {register, handleSubmit} = useForm()
+  const {login, activeUser} = useAuthContext()
+  const [status, setStatus] = useState("")
+  const onSubmit = async data => {
+    console.log(data)
+    try {
+      await login(data.email, data.password);
+      setStatus("Login Success")
+    } catch (e) {
+      setStatus("Login Failed, try again")
+    }
+    
+  }
   return (
-    <html>
+    <>
       <head>
         <script
           src="https://kit.fontawesome.com/fd33c7b4a1.js"
@@ -23,14 +38,14 @@ function LoginPage() {
               <p>Google</p>
             </div>
 
-            <form method="POST">
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div class="txt_field">
                 <label>Email</label>
-                <input type="text" required />
+                <input {...register("email")} type="text" required />
               </div>
               <div class="txt_field">
                 <label>Password</label>
-                <input type="password" required />
+                <input {...register("password")} type="password" required />
               </div>
 
               <input class="login-button" type="submit" value="Login"></input>
@@ -39,13 +54,12 @@ function LoginPage() {
                 <Link to="/signup">
                   <li>Signup</li>
                 </Link>
-                {/* <a href="/signup">Signup</a> */}
               </div>
             </form>
           </div>
         </div>
       </body>
-    </html>
+    </>
   );
 }
 
