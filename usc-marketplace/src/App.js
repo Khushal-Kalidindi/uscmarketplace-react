@@ -12,19 +12,6 @@ import DetailsPage from "./pages/Details";
 function App() {
   return (
     <AuthProvider>
-<<<<<<< Updated upstream
-    <Router>
-      <div className="App">
-        <Nav />
-        <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/signup" element={<SignupPage />} />
-        </Routes>
-      </div>
-    </Router>
-=======
       <Router>
         <div className="App">
           <Nav />
@@ -37,7 +24,6 @@ function App() {
           </Routes>
         </div>
       </Router>
->>>>>>> Stashed changes
     </AuthProvider>
   );
 }
