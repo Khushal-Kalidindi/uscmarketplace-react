@@ -6,8 +6,15 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 10vh;
-  background-color:indianred;
-  color:antiquewhite
+  background-color:rgb(91,23,3);
+}
+nav li{
+  color:white;
+  text-decoration: none;
+}
+nav h3{
+  color:white;
+  text-decoration: none;
 }
 
 .nav-links{

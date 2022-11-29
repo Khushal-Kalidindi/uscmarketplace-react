@@ -15,11 +15,6 @@ function LoginPage() {
         <div className="App">
           <div class="login-container">
             <h1>Login</h1>
-            <div class="google">
-              <i class="fa-brands fa-google"></i>
-              <p>Google</p>
-            </div>
-
             <form method="POST">
               <div class="txt_field">
                 <label>Email</label>
