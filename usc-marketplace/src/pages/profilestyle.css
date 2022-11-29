@@ -47,7 +47,7 @@ a {
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.18);
+  box-shadow: 1px 3px 12px rgb(248, 247, 247);
 }
 
 .header__wrapper .cols__container .left__col h2 {
@@ -64,7 +64,7 @@ a {
 
 .header__wrapper .cols__container .content p {
   font-size: 1rem;
-  color: #1d1d1d;
+  color: #f9f6f6;
   line-height: 1.8em;
 }
 
