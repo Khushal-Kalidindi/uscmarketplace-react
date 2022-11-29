@@ -1,4 +1,4 @@
-import "./../App.css";
+//import "./../App.css";
 import "./style.css";
 import SignupPage from "./Signup"
 import { Link } from "react-router-dom";
@@ -33,11 +33,6 @@ function LoginPage() {
         <div className="App">
           <div class="login-container">
             <h1>Login</h1>
-            <div class="google">
-              <i class="fa-brands fa-google"></i>
-              <p>Google</p>
-            </div>
-
             <form onSubmit={handleSubmit(onSubmit)}>
               <div class="txt_field">
                 <label>Email</label>
@@ -52,7 +47,7 @@ function LoginPage() {
               <div class="signup_link">
                 Not a member? 
                 <Link to="/signup">
-                  <li>Signup</li>
+                  <ul id="signup">Signup</ul>
                 </Link>
               </div>
             </form>

@@ -30,7 +30,8 @@ const ListingBox = () => {
 
   return (
     <ImageList 
-      //sx={{ width: 500, height: 450 }} 
+      sx={{ width: 1, height: 0.9 }} 
+      rowHeight={250}
       cols={3}>
       
       {

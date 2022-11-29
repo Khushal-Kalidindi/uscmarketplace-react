@@ -16,7 +16,6 @@ function App() {
         <Nav />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/signup" element={<SignupPage />} />
