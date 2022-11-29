@@ -10,8 +10,8 @@ const ListingItem = (props) => {
   return (
     <ImageListItem key={props.img}>
         <img
-          src={`${props.img}?w=248&fit=crop&auto=format`}
-          srcSet={`${props.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+          src={`${props.img}?w=164&h=164&fit=crop&auto=format`}
+          srcSet={`${props.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
           alt={props.title}
           loading="lazy"
         />

@@ -1,4 +1,4 @@
-import "./../App.css";
+//import "./../App.css";
 import "./style.css";
 import { useForm } from 'react-hook-form'
 import { AuthContext, useAuthContext } from "../contexts/AuthContext";
@@ -29,16 +29,16 @@ function SignupPage() {
             <h1>Sign Up</h1>
             {JSON.stringify(activeUser)}
             <form onSubmit={handleSubmit(onSubmit)}>
-                <ul class="blank">
-                    <li><input type="text" {...register("fname")} placeholder="First Name" required></input></li>
-                    <li><input type="text" {...register("lname")} placeholder="Last Name" required></input></li>
-                    <li><input type="email" {...register("email")} pattern=".+@usc\.edu" placeholder="Enter @usc.edu email" required></input></li>
-                    <li><input type="password" {...register("password")} placeholder="Enter password" required></input></li>
-                    <li><textarea rows="5" cols="35" {...register("bio")} placeholder="Write a bio!"></textarea></li>
-                    <li><input type="submit" {...register("submit")}></input></li>
-                    <li><input type="reset" {...register("reset")}></input></li>
+                <div class="blank">
+                    <div><input type="text" {...register("fname")} placeholder="First Name" required></input></div>
+                    <div><input type="text" {...register("lname")} placeholder="Last Name" required></input></div>
+                    <div><input type="email" {...register("email")} pattern=".+@usc\.edu" placeholder="Enter @usc.edu email" required></input></div>
+                    <div><input type="password" {...register("password")} placeholder="Enter password" required></input></div>
+                    <div><textarea rows="3" cols="30" {...register("bio")} placeholder="Write a bio!"></textarea></div>
+                    <div><input class="buttons" type="submit" {...register("submit")}></input></div>
+                    <div><input class="buttons" type="reset" {...register("reset")}></input></div>
                     <label>{status}</label>
-                </ul>
+                </div>
             </form>
         </div>
       </body>

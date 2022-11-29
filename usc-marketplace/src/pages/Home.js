@@ -4,11 +4,10 @@ import ListingBox from '../listing/ListingBox';
 
 function HomePage() {
   return (
-    <div className="App container-fluid">
+    <div id="homeDiv" className="App container-fluid">
       <h1>HomePage</h1>
       <div className="row">
-        <h2 className="col-2">Listings</h2>
-        <div className="col-10">
+        <div>
           <ListingBox />
         </div>
       </div>

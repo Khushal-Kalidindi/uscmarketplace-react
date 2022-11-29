@@ -17,11 +17,11 @@ body {
 
 .login-container {
   background-color: rgb(134,43,43);
-  margin-top: 150px;
-  margin-left: 500px;
-  margin-right: 500px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 15px;
-  padding-bottom: 20px;
+  margin-top: 50px;
+  width: 500px;
 }
 
 .signup_link {
@@ -66,41 +66,15 @@ form .txt_field {
 }
 
 input[type="submit"] {
-  height: 30px;
-  width: 90%;
+  height: 40px;
+  width: 100px;
   text-align: center;
   padding: 0px;
   border-radius: 30px;
-  background-color: rgb(109, 145, 200);
+  background-color: rgb(194,163,3);
   margin-top: 5px;
   margin-bottom: 5px;
-}
-
-li {
-  text-align: center;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  background-color: rgb(194,163,3);
   color: white;
-}
-
-.google {
-  top: 20px;
-  left: 50px;
-  position: relative;
-  height: 40px;
-  width: 100px;
-  cursor: pointer;
-  background-color: rgb(130, 171, 130);
-  border-radius: 7px;
-  transition: 0.5s;
-
-  /* display: flex; */
-}
-
-.google p {
-  text-align: center;
-  padding-top: 10px;
 }
 
 .login-container h1 {
@@ -114,4 +88,23 @@ li {
 
 ul.blank {
   list-style-type: none; /* Remove bullets */
+}
+
+#signup{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+}
+
+.blank{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blank div{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
