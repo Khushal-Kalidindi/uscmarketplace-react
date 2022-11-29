@@ -1,6 +1,5 @@
-
-import './../App.css';
-import ListingBox from '../listing/ListingBox';
+import "./../App.css";
+import ListingBox from "../listing/ListingBox";
 
 function HomePage() {
   return (
