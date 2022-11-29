@@ -23,7 +23,7 @@ const ListingBox = () => {
     );
 
     const items = await data.json();
-    console.log("hey" + data);
+    //console.log("hey" + data);
     setItems(items);
   };
 
@@ -34,11 +34,11 @@ const ListingBox = () => {
       cols={3}>
       
       {
-      items ? 
+
       items.map((item) => (
           <ListingItem img={item.image} title={item.title} author={item.category} />
       ))
-      : fuck
+      //: fuck
       }
     </ImageList>
   );
