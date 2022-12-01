@@ -6,25 +6,26 @@ import LoginPage from "./pages/Login";
 import ProfilePage from "./pages/Profile";
 import SignupPage from "./pages/Signup";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./contexts/AuthContext";
+import { AuthProvider, useAuthContext } from "./contexts/AuthContext";
+
 import DetailsPage from "./pages/Details";
 
 function App() {
+  const { activeUser } = useAuthContext()
   return (
-    <AuthProvider>
       <Router>
         <div className="App">
           <Nav />
           <Routes>
             <Route exact path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/profile/:id" element={<ProfilePage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/details" element={<DetailsPage />} />
+            <Route path="/details/:id" element={<DetailsPage />} />
           </Routes>
         </div>
       </Router>
-    </AuthProvider>
+
   );
 }
 

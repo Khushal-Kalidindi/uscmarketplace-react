@@ -12,9 +12,31 @@ import set from "./../img/set.jpg";
 import shoe from "./../img/shoe.jpg";
 import shopping from "./../img/shopping.jpg";
 import usc from "./../img/usc.jpg";
+import {
+  useParams
+} from "react-router-dom";
+import MiniProfilePage from "./MiniProfile";
+import { Link } from "react-router-dom";
 
 function DetailsPage() {
   const [isLoggedin, setLoggedin] = useState(false);
+  let { id } = useParams();
+
+  useEffect(() => {
+    fetchItem();
+  }, []);
+
+  const [item, setItem] = useState({});
+  const fetchItem = async () => {
+    
+    const data = await fetch(
+      'http://localhost:8080/api/listing/get?listingId='.concat(id)
+    );
+
+    const itemx = await data.json();
+    console.log("hey" + itemx);
+    setItem(itemx);
+  };
   return (
     <html lang="en">
       <head>
@@ -35,13 +57,11 @@ function DetailsPage() {
           <header></header>
           <div class="cols__container">
             <div class="left__col">
-              <h2>Button Down Shirt</h2>
+              <h2>{item.title}</h2>
 
-              <h5>Size: Large</h5>
-              <h5>Color: Black</h5>
-              <h5>Condition: New</h5>
-              <h5>Price: $100</h5>
-              <h5>Description: Good </h5>
+              <h5>Category: {item.category}</h5>
+              <h5>Price: {`$${item.price}`}</h5>
+              <h5>Description:  {item.description}</h5>
               {/* {isLoggedin && (
                 <div>
                   <button>Edit Listing</button>
@@ -51,8 +71,14 @@ function DetailsPage() {
             </div>
 
             <div class="descriptionphotos">
-              <img class="itemimages" src={tshirt} alt="" />
+              <img class="itemimages" src={item.imageUrl} alt="" />
             </div>
+            {item.owner_id &&
+            <Link to={`/profile/${item.owner_id}`}>
+              <p>Visit my profile</p>
+            </Link>
+            }
+            
           </div>
         </div>
       </body>

@@ -1,8 +1,10 @@
 import "./../App.css";
 import HomePage from "./Home";
 import { Link } from "react-router-dom";
+import {useAuthContext} from "../contexts/AuthContext"
 
 function Nav() {
+  const { activeUser } = useAuthContext()
   return (
     <nav>
       <Link to="/">
@@ -16,9 +18,13 @@ function Nav() {
         <Link to="/login">
           <li>Login</li>
         </Link>
-        <Link to="/profile">
-          <li>Profile</li>
-        </Link>
+        {activeUser ? 
+        <Link to={`/profile/${activeUser.uid}`}>
+          <li>{activeUser.email}</li>
+        </Link> 
+        :
+          <li>Not signed In</li>
+        }
         <Link to="/details">
           <li>Details</li>
         </Link>

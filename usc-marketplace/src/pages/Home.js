@@ -7,7 +7,7 @@ function HomePage() {
       <h1>HomePage</h1>
       <div className="row">
         <div>
-          <ListingBox />
+          <ListingBox url='http://localhost:8080/api/listing/all'/>
         </div>
       </div>
     </div>

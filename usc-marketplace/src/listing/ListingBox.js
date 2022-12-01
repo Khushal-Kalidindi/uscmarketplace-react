@@ -10,7 +10,7 @@ import './Listing.css';
 
 
 
-const ListingBox = () => {
+const ListingBox = (props) => {
   useEffect(() => {
     fetchItems();
   }, []);
@@ -18,30 +18,31 @@ const ListingBox = () => {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
+    console.log(`http://localhost:8080/api/listing/all/from_owner?ownerId=${props.url}`)
     const data = await fetch(
-      'https://fakestoreapi.com/products'
+      props.url
     );
 
     const items = await data.json();
-    //console.log("hey" + data);
+    console.log("hey" + items.length );
     setItems(items);
   };
 
 
   return (
-    <ImageList 
-      sx={{ width: 1, height: 0.9 }} 
-      rowHeight={250}
+    <>{items &&<>
+    <ImageList
+      sx={{ width: 1, height: 1 }} 
+      rowHeight={400}
       cols={3}>
-      
       {
-
-      items.map((item) => (
-          <ListingItem img={item.image} title={item.title} author={item.category} />
-      ))
-      //: fuck
+        items.map((item) => (
+            <ListingItem img={item.imageUrl} title={item.title} author={item.category} id={item.id} />
+        ))
       }
-    </ImageList>
+    </ImageList>{items.length}</>
+    }
+    </>
   );
 }
 

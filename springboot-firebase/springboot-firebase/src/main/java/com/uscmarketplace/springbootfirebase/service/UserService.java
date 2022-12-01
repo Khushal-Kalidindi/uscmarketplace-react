@@ -15,7 +15,7 @@ public class UserService {
     private static final String collection_name = "User";
     public String saveUser(User user) throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
-        ApiFuture<WriteResult> userApiFuture = db.collection(collection_name).document(user.getName()).set(user);
+        ApiFuture<WriteResult> userApiFuture = db.collection(collection_name).document(user.getEmail_address()).set(user);
         return userApiFuture.get().getUpdateTime().toString();
 
     }

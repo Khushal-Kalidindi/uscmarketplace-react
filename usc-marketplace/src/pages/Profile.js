@@ -9,9 +9,33 @@ import set from "./../img/set.jpg";
 import shoe from "./../img/shoe.jpg";
 import shopping from "./../img/shopping.jpg";
 import usc from "./../img/usc.jpg";
+import React, {useState, useEffect} from 'react';
+import {useAuthContext} from "../contexts/AuthContext"
+import ListingBox from "../listing/ListingBox";
+import {
+  useParams
+} from "react-router-dom";
 
-function ProfilePage() {
+function ProfilePage(props) {
+  //const x = activeUser.email;
+  let { id } = useParams();
+  useEffect(() => {
+    fetchItem();
+  }, []);
+
+  const [item, setItem] = useState({});
+  const fetchItem = async () => {
+    
+    const data = await fetch(
+      'http://localhost:8080/api/user/get/by_id?userId='.concat(id)
+    );
+
+    const itemx = await data.json();
+    console.log("hey" + itemx);
+    setItem(itemx);
+  };
   return (
+    
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
@@ -32,30 +56,30 @@ function ProfilePage() {
           <div class="cols__container">
             <div class="left__col">
               <div class="img__container">
-                <img src={josh} alt="Josh Williams" />
+                <img src={item &&item.profile_pic_url} alt="Josh Williams" />
               </div>
-              <h2>Josh Williams</h2>
+              <h2>{item && item.name}</h2>
               <p>Welcome to my profile!</p>
-              <p>joshw@usc.com</p>
+              <p>{item && item.email_address}</p>
 
               <div class="content">
                 <p>
-                  Hi! My name is Josh, I'm a senior at USC. I'm moving out of my
-                  apartment next month, so I am selling the items that I don't
-                  need anymore. You can find the list of items that I'm selling
-                  on the right. Click on the pictures to see more details!
+                  {item && item.bio}
                 </p>
               </div>
             </div>
             <div class="right__col">
-              <div class="photos">
+              {/* <div class="photos">
                 <img src={tshirt} alt="" />
                 <img src={desk} alt="Photo" />
                 <img src={lamp} alt="Photo" />
                 <img src={set} alt="Photo" />
                 <img src={usc} alt="Photo" />
                 <img src={shoe} alt="Photo" />
-              </div>
+              </div> */}
+              {item.user_id &&<>fuck
+              <ListingBox url={`http://localhost:8080/api/listing/all/from_owner?ownerId=${item.user_id}`}/>
+              </>}
             </div>
           </div>
         </div>
