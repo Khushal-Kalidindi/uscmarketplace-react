@@ -53,16 +53,28 @@ public class AuctionJDBC{
 		PreparedStatement ps = conn.prepareStatement("SELECT Highest FROM HighestBid");
 		ResultSet rs = ps.executeQuery();
 		int lastHighest = 0;
-		boolean rsHasNext = false;
 		while(rs.next()) {
 			lastHighest = rs.getInt("Highest");
-			rsHasNext = true;
-			System.out.println("Enter");
 		}
 		conn.close();
 		rs.close();
 		ps.close();
 		return Integer.toString(lastHighest);
+	}
+	
+	public String latestEmail() throws SQLException, ClassNotFoundException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/Auction?user=root&password=asdfghjkl");
+		PreparedStatement ps = conn.prepareStatement("SELECT Email FROM HighestBid");
+		ResultSet rs = ps.executeQuery();
+		String lastEmail = "";
+		while(rs.next()) {
+			lastEmail = rs.getString("Email");
+		}
+		conn.close();
+		rs.close();
+		ps.close();
+		return lastEmail;
 	}
 	
 	
