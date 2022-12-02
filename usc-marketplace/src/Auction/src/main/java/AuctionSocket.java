@@ -38,16 +38,25 @@ private static int currentBidder = 0;
 		String[] inputs = message.split("/");
 		AuctionJDBC jdbc = new AuctionJDBC();
 		try {
-			String result = jdbc.searchBid(Integer.parseInt(inputs[0]), inputs[1]);
-			if(result.equals("Highest")) {
+			if(inputs[0].equals("newBid")) {
+				String result = jdbc.searchBid(Integer.parseInt(inputs[1]), inputs[2]);
+				if(result.equals("Highest")) {
+					for(Session s : sessionVector) {
+						// getBasicRemote() is for synchronous communication
+						// getAsyncRemote() is for asynchronous communication
+						s.getBasicRemote().sendText(message);
+					}
+				}
+				else if(result.equals("Fail")) {
+					session.getBasicRemote().sendText(result);
+				}
+			}
+			else if(inputs[0].equals("End")) {
 				for(Session s : sessionVector) {
 					// getBasicRemote() is for synchronous communication
 					// getAsyncRemote() is for asynchronous communication
-					s.getBasicRemote().sendText("newBid/"+message);
+					s.getBasicRemote().sendText("End/"+jdbc.latestEmail());
 				}
-			}
-			else if(result.equals("Fail")) {
-				session.getBasicRemote().sendText(result);
 			}
 		} catch (NumberFormatException ne) {
 			// TODO Auto-generated catch block
