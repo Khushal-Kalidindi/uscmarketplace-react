@@ -18,7 +18,7 @@ const ListingBox = (props) => {
   const [items, setItems] = useState([]);
 
   const fetchItems = async () => {
-    console.log(`http://localhost:8080/api/listing/all/from_owner?ownerId=${props.url}`)
+    console.log(props.url)
     const data = await fetch(
       props.url
     );
@@ -32,7 +32,7 @@ const ListingBox = (props) => {
   return (
     <>{items &&<>
     <ImageList
-      sx={{ width: 1, height: 1 }} 
+      sx={{ width: 0.99, height: 0.99 }} 
       rowHeight={400}
       cols={3}>
       {
@@ -40,7 +40,7 @@ const ListingBox = (props) => {
             <ListingItem img={item.imageUrl} title={item.title} author={item.category} id={item.id} />
         ))
       }
-    </ImageList>{items.length}</>
+    </ImageList></>
     }
     </>
   );

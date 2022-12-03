@@ -12,6 +12,8 @@ import set from "./../img/set.jpg";
 import shoe from "./../img/shoe.jpg";
 import shopping from "./../img/shopping.jpg";
 import usc from "./../img/usc.jpg";
+import { AuthContext, useAuthContext } from "../contexts/AuthContext";
+import { useContext } from "react";
 import {
   useParams
 } from "react-router-dom";
@@ -19,7 +21,8 @@ import MiniProfilePage from "./MiniProfile";
 import { Link } from "react-router-dom";
 
 function DetailsPage() {
-  const [isLoggedin, setLoggedin] = useState(false);
+  const [status, setStatus] = useState("");
+  const {login, activeUser} = useAuthContext();
   let { id } = useParams();
 
   useEffect(() => {
@@ -37,6 +40,11 @@ function DetailsPage() {
     console.log("hey" + itemx);
     setItem(itemx);
   };
+
+  const handleSubmit = () => {
+    setStatus("Listing Deleted");
+    console.log("FICK")
+};
   return (
     <html lang="en">
       <head>
@@ -64,10 +72,15 @@ function DetailsPage() {
               <h5>Description:  {item.description}</h5>
               {/* {isLoggedin && (
                 <div>
-                  <button>Edit Listing</button>
                   <button>Delete Listing</button>
-                </div>
+                </div>setStatus("Listing Deleted!")
               )} */}
+              {item && item.owner_id && activeUser && activeUser.uid == item.owner_id &&
+                <>
+                    <button onClick={handleSubmit} style={{"textDecoration":"none", "color":"black"}}>Delete Listing</button>
+                    <p>{status}</p>
+                </>
+                }
             </div>
 
             <div class="descriptionphotos">

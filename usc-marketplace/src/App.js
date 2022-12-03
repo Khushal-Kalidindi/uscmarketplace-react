@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider, useAuthContext } from "./contexts/AuthContext";
 
 import DetailsPage from "./pages/Details";
+import CreateListingPage from "./pages/CreateListing";
 
 function App() {
   const { activeUser } = useAuthContext()
@@ -18,6 +19,8 @@ function App() {
           <Nav />
           <Routes>
             <Route exact path="/" element={<HomePage />} />
+            <Route path="/:id" element={<HomePage />} />
+            <Route path="/createlisting" element={<CreateListingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/profile/:id" element={<ProfilePage />} />
             <Route path="/signup" element={<SignupPage />} />

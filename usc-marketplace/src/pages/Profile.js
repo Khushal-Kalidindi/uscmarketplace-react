@@ -15,6 +15,7 @@ import ListingBox from "../listing/ListingBox";
 import {
   useParams
 } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ProfilePage(props) {
   //const x = activeUser.email;
@@ -22,7 +23,7 @@ function ProfilePage(props) {
   useEffect(() => {
     fetchItem();
   }, []);
-
+  const { activeUser } = useAuthContext(); 
   const [item, setItem] = useState({});
   const fetchItem = async () => {
     
@@ -67,6 +68,13 @@ function ProfilePage(props) {
                   {item && item.bio}
                 </p>
               </div>
+              <div class="content">
+                <p>
+                  {item && item.email_address && activeUser && activeUser.email == item.email_address && 
+                    <Link to={`/createlisting`}><p style={{"textDecoration":"none", "color":"yellow"}}>Add a Listing</p></Link>
+                  }
+                </p>
+              </div>
             </div>
             <div class="right__col">
               {/* <div class="photos">
@@ -77,7 +85,7 @@ function ProfilePage(props) {
                 <img src={usc} alt="Photo" />
                 <img src={shoe} alt="Photo" />
               </div> */}
-              {item.user_id &&<>fuck
+              {item.user_id && <>
               <ListingBox url={`http://localhost:8080/api/listing/all/from_owner?ownerId=${item.user_id}`}/>
               </>}
             </div>
